@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "title": "learn react",
+      "status": false,
+      "id": 1679301734552
+    },
+    {
+      "title": "play badminton",
+      "status": false,
+      "id": 1679301743426
+    },
+    {
+      "title": "watch cricket",
+      "status": false,
+      "id": 1679301751220
+    },
+    {
+      "title": "scrolling reels",
+      "status": false,
+      "id": 1679301759834
+    },
+    {
+      "title": "enjoy music",
+      "status": false,
+      "id": 1679302877496
+    }
+  ]
+}
