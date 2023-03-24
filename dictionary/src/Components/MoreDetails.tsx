@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import { Paper, Box } from "@mui/material";
-import ReactAudioPlayer from 'react-audio-player';
+import ReactAudioPlayer from "react-audio-player";
 import { textType } from "./Main";
 
 type WordProp = {
@@ -8,7 +8,6 @@ type WordProp = {
 };
 
 const MoreDetails = ({ showText }: WordProp) => {
-
   return (
     <div>
       <Paper
@@ -22,8 +21,8 @@ const MoreDetails = ({ showText }: WordProp) => {
           bgcolor: "wheat",
         }}
       >
-        <Box fontSize="15px" > {showText.word} </Box>
-        <Box fontSize="15px" > {showText.phonetic} </Box>
+        <Box fontSize="15px"> {showText.word} </Box>
+        <Box fontSize="15px"> {showText.phonetic} </Box>
       </Paper>
       <Paper
         sx={{
@@ -59,9 +58,9 @@ const MoreDetails = ({ showText }: WordProp) => {
             <br />
             {meaning.definitions.map((definition: any, i: number) => (
               <div key={index + i}>
-                <Box fontSize="15px" >{definition.definition}</Box>
+                <Box fontSize="15px">{definition.definition}</Box>
                 <br />
-                <Box fontSize="15px" >Example: {definition.example}</Box>
+                <Box fontSize="15px">Example: {definition.example}</Box>
                 <br />
               </div>
             ))}

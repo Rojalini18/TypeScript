@@ -22,7 +22,7 @@ const Main = () => {
 
   useEffect(() => {
     axios
-      .get("https://random-words-api.vercel.app/word")
+      .get("https://dictionary-api-rojalinidas.vercel.app/word")
       .then((response: any) => {
         setWord(response.data[0].word);
         setTextDefinition(response.data[0].definition);

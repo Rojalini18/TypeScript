@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Paper, Button, Box } from '@mui/material';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { Paper, Button, Box } from "@mui/material";
+import axios from "axios";
 
 type randomWordProp = {
   word: string;
@@ -13,7 +13,7 @@ const RandomWord = ({ word, definition }: randomWordProp) => {
 
   useEffect(() => {
     axios
-      .get("https://api.dictionaryapi.dev/api/v2/entries/en/word")
+      .get("https://dictionary-api-rojalinidas.vercel.app/word")
       .then((response: any) => {
         setWordDetails(response.data);
       })
@@ -34,18 +34,24 @@ const RandomWord = ({ word, definition }: randomWordProp) => {
         borderRadius: "5px",
       }}
     >
-      <Box fontSize="25px" fontWeight="bold">Word of the Day!</Box>
+      <Box fontSize="25px" fontWeight="bold">
+        Word of the Day!
+      </Box>
       <br />
-      <Box fontSize="25px" fontWeight="bold">Word : {word}</Box>
+      <Box fontSize="25px" fontWeight="bold">
+        Word : {word}
+      </Box>
       <br />
-      <Box fontSize="25px" fontWeight="bold">Definition : {definition}</Box>
+      <Box fontSize="25px" fontWeight="bold">
+        Definition : {definition}
+      </Box>
       <br />
-      <Button onClick={() => setrandomWordDetails(true)} variant="contained" >
+      <Button onClick={() => setrandomWordDetails(true)} variant="contained">
         See More...
       </Button>
       <br />
     </Paper>
-  )
-}
+  );
+};
 
 export default RandomWord;
