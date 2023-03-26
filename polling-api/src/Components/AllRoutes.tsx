@@ -16,7 +16,7 @@ function AllRoutes() {
   const getData = (): void => {
     const api = async (): Promise<void> => {
       const response = await axios.get(
-        ` http://hn.algolia.com/api/v1/search?query=bar&page=${pages}`
+        ` http://hn.algolia.com/api/v1/search_by_date?tags=story&query=bar&page=${pages}`
       );
       if (!response?.data?.exhaustiveNbHits) {
         setData(

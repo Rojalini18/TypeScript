@@ -59,11 +59,8 @@ const Posts = ({ data, selectPage, setSelectPage }: listType) => {
                   <TableCell sx={{backgroundColor: "black",border: "1px solid white",color: "white",}}align="center">
                     AUTHOR
                   </TableCell>
-                  <TableCell sx={{backgroundColor: "black",border: "1px solid white",color: "white",}}align="center">
-                    RAW_DATA
-                  </TableCell>
                 </TableHead>
-                <TableBody>
+                <TableBody >
                   {data.length &&
                     data[selectPage - 1].map(
                       (e: datatype): JSX.Element => {
@@ -71,16 +68,11 @@ const Posts = ({ data, selectPage, setSelectPage }: listType) => {
                         const { author, created_at, title, url, objectID } =
                           e;
                         return (
-                          <TableRow key={objectID}>
+                          <TableRow key={objectID} onClick={(): void => handleSelect(e)}>
                             <TableCell>{title}</TableCell>
                             <TableCell>{url}</TableCell>
                             <TableCell>{created_at}</TableCell>
                             <TableCell>{author}</TableCell>
-                            <TableCell>
-                              <Button variant="contained" onClick={(): void => handleSelect(e)} >
-                                Select
-                              </Button>
-                            </TableCell>
                           </TableRow>
                         );
                       }
