@@ -11,16 +11,16 @@ function AllRoutes() {
   const [selectPage, setSelectPage] = useState<number>(1);
 
   var intervalTime: NodeJS.Timer;
-  var pages: number = 0;
+  var page: number = 0;
 
   const getData = (): void => {
     const api = async (): Promise<void> => {
       const response = await axios.get(
-        ` http://hn.algolia.com/api/v1/search_by_date?tags=story&query=bar&page=${pages}`
+        ` https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}`
       );
       if (!response?.data?.exhaustiveNbHits) {
         setData((prev: dataType): dataType => [...prev, response?.data?.hits]);
-        pages = pages + 1;
+        page = page + 1;
       } else {
         clearInterval(intervalTime);
       }
