@@ -19,9 +19,7 @@ function AllRoutes() {
         ` http://hn.algolia.com/api/v1/search_by_date?tags=story&query=bar&page=${pages}`
       );
       if (!response?.data?.exhaustiveNbHits) {
-        setData(
-          (prev: dataType): dataType => [...prev, response?.data?.hits]
-        );
+        setData((prev: dataType): dataType => [...prev, response?.data?.hits]);
         pages = pages + 1;
       } else {
         clearInterval(intervalTime);
@@ -38,9 +36,17 @@ function AllRoutes() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Posts data={data} selectPage={selectPage} setSelectPage={setSelectPage}/>}/>
+        <Route
+          path="/"
+          element={
+            <Posts
+              data={data}
+              selectPage={selectPage}
+              setSelectPage={setSelectPage}
+            />
+          }
+        />
         <Route path="/rawjson" element={<RawJSON />} />
-        <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>
     </div>
   );

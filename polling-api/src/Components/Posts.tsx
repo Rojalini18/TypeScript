@@ -21,10 +21,10 @@ type listType = {
 };
 
 type datatype = {
-  author: string;
-  created_at: string;
   title: string;
   url: string;
+  created_at: string;
+  author: string;
   objectID: string;
 };
 
@@ -36,53 +36,100 @@ const Posts = ({ data, selectPage, setSelectPage }: listType) => {
 
   return (
     <div>
-      <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",}}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {data.length === 0 ? (
           <>
             <CircularProgress></CircularProgress>
             LOADING...
           </>
         ) : (
-            <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",}}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <TableContainer>
               <Table stickyHeader>
                 <TableHead>
-                  <TableCell sx={{backgroundColor: "black",border: "1px solid white",color: "white",}}align="center">
+                  <TableCell
+                    sx={{
+                      backgroundColor: "black",
+                      border: "1px solid white",
+                      color: "white",
+                    }}
+                    align="center"
+                  >
                     TITLE
                   </TableCell>
-                  <TableCell sx={{backgroundColor: "black",border: "1px solid white",color: "white",}}align="center">
+                  <TableCell
+                    sx={{
+                      backgroundColor: "black",
+                      border: "1px solid white",
+                      color: "white",
+                    }}
+                    align="center"
+                  >
                     URL
                   </TableCell>
-                  <TableCell sx={{backgroundColor: "black",border: "1px solid white",color: "white",}}align="center">
+                  <TableCell
+                    sx={{
+                      backgroundColor: "black",
+                      border: "1px solid white",
+                      color: "white",
+                    }}
+                    align="center"
+                  >
                     CREATED_AT
                   </TableCell>
-                  <TableCell sx={{backgroundColor: "black",border: "1px solid white",color: "white",}}align="center">
+                  <TableCell
+                    sx={{
+                      backgroundColor: "black",
+                      border: "1px solid white",
+                      color: "white",
+                    }}
+                    align="center"
+                  >
                     AUTHOR
                   </TableCell>
                 </TableHead>
-                <TableBody >
+                <TableBody>
                   {data.length &&
-                    data[selectPage - 1].map(
-                      (e: datatype): JSX.Element => {
-                        console.log(e);
-                        const { author, created_at, title, url, objectID } =
-                          e;
-                        return (
-                          <TableRow key={objectID} onClick={(): void => handleSelect(e)}>
-                            <TableCell>{title}</TableCell>
-                            <TableCell>{url}</TableCell>
-                            <TableCell>{created_at}</TableCell>
-                            <TableCell>{author}</TableCell>
-                          </TableRow>
-                        );
-                      }
-                    )}
+                    data[selectPage - 1].map((e: datatype): JSX.Element => {
+                      console.log(e);
+                      const { author, created_at, title, url, objectID } = e;
+                      return (
+                        <TableRow
+                          key={objectID}
+                          onClick={(): void => handleSelect(e)}
+                        >
+                          <TableCell>{title}</TableCell>
+                          <TableCell>{url}</TableCell>
+                          <TableCell>{created_at}</TableCell>
+                          <TableCell>{author}</TableCell>
+                        </TableRow>
+                      );
+                    })}
                 </TableBody>
               </Table>
             </TableContainer>
             <Box>
-              <Pagination count={data.length}
-                onChange={(e: ChangeEvent<any>, value: number): void =>setSelectPage(value)}page={selectPage}></Pagination>
+              <Pagination
+                count={data.length}
+                onChange={(e: ChangeEvent<any>, value: number): void =>
+                  setSelectPage(value)
+                }
+                page={selectPage}
+              ></Pagination>
             </Box>
           </Box>
         )}
