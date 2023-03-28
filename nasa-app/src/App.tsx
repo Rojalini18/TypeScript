@@ -1,9 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import {Home} from "./Components/Home";
-import {Asteroid} from "./Components/Asteroid";
-import {RandomAsteroid} from "./Components/RandomAsteroid";
-
+import { Home } from "./Components/Home";
+import { Asteroid } from "./Components/Asteroid";
+import { RandomAsteroid } from "./Components/RandomAsteroid";
 
 const App = () => {
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Typography, Box, Grid, Paper } from "@mui/material";
 import axios from "axios";
 
-interface AsteroidDetails {
+interface IAsteroid {
   name: string;
   nasa_jpl_url: string;
   is_potentially_hazardous_asteroid: boolean;
@@ -10,7 +10,7 @@ interface AsteroidDetails {
 
 export const RandomAsteroid = () => {
   const [error, setError] = useState(false);
-  const [data, setData] = useState<AsteroidDetails>({
+  const [data, setData] = useState<IAsteroid>({
     name: "",
     nasa_jpl_url: "",
     is_potentially_hazardous_asteroid: false,
