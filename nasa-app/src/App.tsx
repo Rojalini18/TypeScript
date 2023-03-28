@@ -5,7 +5,7 @@ import {Asteroid} from "./Components/Asteroid";
 import {RandomAsteroid} from "./Components/RandomAsteroid";
 
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Routes>
       <Route>
