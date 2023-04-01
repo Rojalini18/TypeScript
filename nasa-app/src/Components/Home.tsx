@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const [input, setInput] = useState<string>("");
+  const [asteroid_id, setAsteroid_id] = useState<string>("");
   const [btnDisabledErr, setBtnDisabledErr] = useState<boolean>(true);
   const error = useRef<boolean>(false);
 
   const handleClick = () => {
-    navigate("/asteroid");
+    navigate(`/asteroid/${asteroid_id}`);
   };
 
   const handleClickMore = () => {
@@ -24,7 +24,7 @@ export const Home = () => {
       setBtnDisabledErr(false);
       error.current = false;
     }
-    setInput(value);
+    setAsteroid_id(value);
   };
 
   return (
@@ -53,32 +53,26 @@ export const Home = () => {
       >
         <TextField
           label="Enter Asteroid id"
-          value={input}
+          value={asteroid_id}
           onChange={(e) => handleChange(e.target.value)}
           variant="outlined"
         />
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <Box sx={{ justifyContent: "center" }}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleClick}
-              disabled={btnDisabledErr}
-            >
-              Submit
-            </Button>
-          </Box>
-          <Box sx={{ justifyContent: "center" }}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleClickMore}
-              disabled={btnDisabledErr}
-            >
-              Random Asteroid
-            </Button>
-          </Box>
-        </Box>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleClick}
+          disabled={btnDisabledErr}
+        >
+          Asteroid
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleClickMore}
+          disabled={btnDisabledErr}
+        >
+          Random Asteroid
+        </Button>
       </Box>
     </Box>
   );

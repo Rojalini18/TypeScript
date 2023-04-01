@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Grid, Paper } from "@mui/material";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 interface IAsteroid {
   name: string;
@@ -9,6 +10,7 @@ interface IAsteroid {
 }
 
 export const Asteroid = () => {
+  const { asteroid_id } = useParams();
   const [error, setError] = useState(false);
   const [data, setData] = useState<IAsteroid>({
     name: "",
@@ -19,10 +21,11 @@ export const Asteroid = () => {
   useEffect(() => {
     axios
       .get(
-        "https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=MXfBwkyieEoJ1xPt4FLhIidBolP4Z1qcHxg0AJI2"
+        `https://api.nasa.gov/neo/rest/v1/neo/${asteroid_id}?api_key=MXfBwkyieEoJ1xPt4FLhIidBolP4Z1qcHxg0AJI2`
       )
       .then((response: any) => {
         setData(response.data);
+        //console.log(response.data.id);
       })
       .catch((error: any) => {
         //console.log(error);

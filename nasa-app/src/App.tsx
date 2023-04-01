@@ -9,7 +9,7 @@ const App = () => {
     <Routes>
       <Route>
         <Route path="/" element={<Home />} />
-        <Route path="/asteroid" element={<Asteroid />} />
+        <Route path="/asteroid/:asteroid_id" element={<Asteroid />} />
         <Route path="/random_asteroid" element={<RandomAsteroid />} />
       </Route>
     </Routes>

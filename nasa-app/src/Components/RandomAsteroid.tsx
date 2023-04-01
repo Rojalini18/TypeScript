@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Box, Grid, Paper } from "@mui/material";
+import { Typography, Grid, Paper } from "@mui/material";
 import axios from "axios";
 
 interface IAsteroid {
@@ -24,9 +24,11 @@ export const RandomAsteroid = () => {
       .then((response: any) => {
         const asteroidId = response.data.near_earth_objects;
         const randomAstId = asteroidId[Math.floor(Math.random() * asteroidId.length)];
+        //console.log(asteroidId)
         setData(randomAstId);
+        //console.log(response);
       })
-      .catch((error:any) => {
+      .catch((error: any) => {
         //console.log(error);
         setError(true);
       });
@@ -40,7 +42,7 @@ export const RandomAsteroid = () => {
           flex: 1,
           minWidth: "30rem",
           maxWidth: "30rem",
-          margin: "auto"
+          margin: "auto",
         }}
       >
         <Paper
@@ -48,7 +50,7 @@ export const RandomAsteroid = () => {
             padding: "10px",
             borderRadius: "4px",
             backgroundColor: "#fff",
-            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.3)"
+            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.3)",
           }}
         >
           <Typography
@@ -58,7 +60,7 @@ export const RandomAsteroid = () => {
               fontSize: "1.5rem",
               justifyContent: "center",
               alignItems: "center",
-              marginLeft: "130px"
+              marginLeft: "130px",
             }}
           >
             Asteroid Details
