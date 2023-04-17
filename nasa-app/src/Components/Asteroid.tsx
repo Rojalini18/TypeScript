@@ -31,7 +31,7 @@ export const Asteroid = () => {
         //console.log(error);
         setError(true);
       });
-  }, []);
+  });
 
   return (
     <Grid container sx={{ justifyContent: "center", marginTop: "50px" }}>

@@ -23,7 +23,8 @@ export const RandomAsteroid = () => {
       )
       .then((response: any) => {
         const asteroidId = response.data.near_earth_objects;
-        const randomAstId = asteroidId[Math.floor(Math.random() * asteroidId.length)];
+        const randomAstId =
+          asteroidId[Math.floor(Math.random() * asteroidId.length)];
         //console.log(asteroidId)
         setData(randomAstId);
         //console.log(response);

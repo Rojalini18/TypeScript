@@ -6,7 +6,6 @@ export const Home = () => {
   const navigate = useNavigate();
   const [asteroid_id, setAsteroid_id] = useState<string>("");
   const [btnDisabledErr, setBtnDisabledErr] = useState<boolean>(true);
-  const error = useRef<boolean>(false);
 
   const handleClick = () => {
     navigate(`/asteroid/${asteroid_id}`);
@@ -19,10 +18,8 @@ export const Home = () => {
   const handleChange = (value: string) => {
     if (value.length < 0) {
       setBtnDisabledErr(true);
-      error.current = true;
     } else {
       setBtnDisabledErr(false);
-      error.current = false;
     }
     setAsteroid_id(value);
   };
