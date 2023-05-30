@@ -5,12 +5,19 @@
   flex-direction: column;
 }
 .qusion {
-  padding-top: 50px;
+  /* padding-top: 20px; */
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  align-items: center;
+  /* gap: 2px; */
 }
 .s {
   padding-top: 20px;
+  padding-right: 50px;
 }
 .center {
+  margin-top: 2px;
   text-align: center;
   align-items: center;
   display: flex;
@@ -18,5 +25,8 @@
 }
 .mathTheFollowing > span {
   display: inline-block;
-  width: 200px;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  padding: 4px;
 }

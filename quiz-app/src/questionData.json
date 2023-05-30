@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "question": "In which year Virat Kohli made his T20I debut?",
+    "question": "In which year did Virat Kohli made his T20I debut?",
     "answer": "2010",
     "questionOption": [""],
     "option": [""]
@@ -16,15 +16,15 @@
   {
     "id": 3,
     "question": "A plant requires what for photosynthesis?",
-    "answer": ["water", "sunlight"],
-    "option": ["water", "iron", "sunlight", "magnesium"],
+    "answer": ["Water", "Sunlight"],
+    "option": ["Water", "Iron", "Sunlight", "Magnesium"],
     "questionOption": [""]
   },
   {
     "id": 4,
-    "question": "Is Antarctic Ocean, the coldest Ocean on Earth?",
-    "answer": "yes",
-    "option": ["yes", "no"],
+    "question": "Is Antarctic Ocean, the coldest ocean on earth?",
+    "answer": "True",
+    "option": ["True", "False"],
     "questionOption": [""]
   },
   {

@@ -75,7 +75,7 @@ const Question = () => {
   };
 
   if (id > 5 && id < 1) {
-    return <div className="headding">id not found</div>;
+    return <div className="headding">Id not Available</div>;
   }
   return (
     <Box component="form" onSubmit={handleOnAnswerSubmission}>
@@ -87,8 +87,8 @@ const Question = () => {
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
         <div className="qusion">
-          <h3 style={{ display: "inline-block", paddingRight: "40px" }}>
-            {id} )
+          <h3 style={{ display: "inline-block", paddingRight: "10px" }}>
+            {id})
           </h3>
           <b>{questionData?.[id - 1].question}</b>
         </div>
@@ -99,7 +99,7 @@ const Question = () => {
             case 1:
               return (
                 <TextField
-                  sx={{ paddingRight: "30px" }}
+                  sx={{ marginRight: -10 }}
                   variant="standard"
                   value={answersArray[0]}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -118,6 +118,7 @@ const Question = () => {
               return (
                 <FormControl>
                   <RadioGroup
+                    sx={{ marginRight: -10 }}
                     value={answersArray[1]}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                       setAnswersArray(
@@ -149,6 +150,7 @@ const Question = () => {
                   {arr.map((item: string): JSX.Element => {
                     return (
                       <FormControlLabel
+                        sx={{ marginRight: -11 }}
                         key={item}
                         control={<Checkbox />}
                         label={item}
@@ -164,6 +166,7 @@ const Question = () => {
               return (
                 <FormControl>
                   <RadioGroup
+                    sx={{ marginRight: -15 }}
                     value={answersArray[3]}
                     onChange={(e: ChangeEvent<HTMLInputElement>): void => {
                       setAnswersArray(
@@ -192,7 +195,7 @@ const Question = () => {
               let arr5: quesionType = questionData?.[4];
               return (
                 <>
-                  <Button onClick={(): void => setArrAnswer5([])}>Retry</Button>
+                  <Button style={{marginTop:"-5px", marginRight:"-50px"}} onClick={(): void => setArrAnswer5([])}>Retry</Button>
                   {arr5.questionOption.map(
                     (item: string, id: number): JSX.Element => {
                       console.log(item, arrAnswer5?.[id], arr5?.option?.[id]);
@@ -223,25 +226,24 @@ const Question = () => {
       </div>
       <Button
         variant="contained"
-        sx={{ left: "50px", bottom: "30%", position: "absolute" }}
-        disabled={id <= 1}
+        sx={{ left: "120px", bottom: "5%", position: "absolute" }}
         onClick={(): void => navigate(`/questions/${id - 1}`)}
+        disabled={id <= 1}
       >
-        Back
+        Prev
       </Button>
       <Button
         variant="contained"
-        sx={{ right: "50px", bottom: "30%", position: "absolute" }}
-        disabled={id >= 5}
+        sx={{ right: "120px", bottom: "5%", position: "absolute" }}
         onClick={(): void => navigate(`/questions/${Number(id) + 1}`)}
+        disabled={id >= 5}
       >
         Next
       </Button>
       <Button
-        color="secondary"
-        variant="contained"
-        sx={{ right: "50%", bottom: "6%", position: "absolute" }}
         type="submit"
+        variant="contained"
+        sx={{ right: "48%", bottom: "5%", position: "absolute" }}
         disabled={!(id == 5)}
       >
         Submit

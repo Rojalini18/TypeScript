@@ -24,13 +24,12 @@ const Result = () => {
   );
 
   if (!localData) {
-    return <h1>Not allowed</h1>;
+    return <h1>Not Available</h1>;
   }
   return (
     <div className="center">
       <h1>You got {rightAnswers}/5</h1>
       <PieChart firstColourPercent={(rightAnswers * 100) / 5}></PieChart>
-
       {questionData.map((question: any) => {
         isAnswerdRight =
           question.id == 3 &&
@@ -42,20 +41,26 @@ const Result = () => {
             ? true
             : false;
         return (
-          <Box
-            px={{
-              marginTop: "20px",
-            }}
-            key={question.id}
-          >
-            <p>Q: {question.question}</p>
+          <Box>
+            <p
+              style={{
+                width: "400px",
+                padding: "2px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Q: {question.question}
+            </p>
             <Box
               sx={{
                 color: "white",
                 bgcolor: isAnswerdRight ? "green" : "red",
-                padding: "1rem",
+                padding: "10px",
                 borderRadius: "5px",
-                width: "300px",
+                width: "400px",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
               {JSON.stringify(localData[question.id - 1])}
@@ -71,23 +76,19 @@ const Result = () => {
       })}
       <Box
         sx={{
+          width: "200px",
+          height: "40px",
           display: "flex",
           justifyContent: "space-between",
-          width: "200px",
+          marginTop: "30px",
+          marginBottom: "50px",
+          gap: "20px",
         }}
       >
-        <Button
-          color="warning"
-          onClick={() => navigate("/questions/1")}
-          variant="contained"
-        >
+        <Button variant="contained" onClick={() => navigate("/questions/1")}>
           Retry
         </Button>
-        <Button
-          color="warning"
-          onClick={() => navigate("/")}
-          variant="contained"
-        >
+        <Button variant="contained" onClick={() => navigate("/")}>
           Exit
         </Button>
       </Box>

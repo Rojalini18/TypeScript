@@ -10,7 +10,7 @@ const Navbar = () => {
         display: "flex",
         justifyContent: "space-around",
         fontWeight: "bold",
-        fontSize: "25px",
+        fontSize: "30px",
         padding: "10px",
       }}
     >

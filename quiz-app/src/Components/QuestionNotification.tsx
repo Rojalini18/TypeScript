@@ -17,32 +17,33 @@ export type quesionType = {
   option: Array<string>;
 };
 
-const QuestionNotification = ({ answersArray, id }: qusetionIdicatorType)=> {
-  return(
-  <Box
-    sx={{
-      paddingTop: "20px",
-      display: "flex",
-      justifyContent: "space-around",
-    }}
-  >
-    {questionData.map((quesion: quesionType) => {
-      const isAnswered = answersArray[quesion.id - 1].length > 0 ? true : false;
-      let highlight = false;
-      if (Number(id) === quesion.id) {
-        highlight = true;
-      }
-      return (
-        <Circle
-          key={quesion.id}
-          highlight={highlight}
-          isAnswered={isAnswered}
-          id={quesion.id}
-        ></Circle>
-      );
-    })}
-  </Box>
-  )
+const QuestionNotification = ({ answersArray, id }: qusetionIdicatorType) => {
+  return (
+    <Box
+      sx={{
+        paddingTop: "20px",
+        display: "flex",
+        justifyContent: "space-around",
+      }}
+    >
+      {questionData.map((quesion: quesionType) => {
+        const isAnswered =
+          answersArray[quesion.id - 1].length > 0 ? true : false;
+        let highlight = false;
+        if (Number(id) === quesion.id) {
+          highlight = true;
+        }
+        return (
+          <Square
+            key={quesion.id}
+            highlight={highlight}
+            isAnswered={isAnswered}
+            id={quesion.id}
+          ></Square>
+        );
+      })}
+    </Box>
+  );
 };
 
 export default QuestionNotification;
@@ -53,14 +54,13 @@ type circleType = {
   highlight: boolean;
 };
 
-const Circle = ({ id, isAnswered, highlight }: circleType): JSX.Element => {
+const Square = ({ id, isAnswered, highlight }: circleType): JSX.Element => {
   return (
     <Link to={`/questions/${id}`}>
       <Box
         sx={{
-          bgcolor: isAnswered ? "rgb(236, 111, 61)" : "gray",
-          border: highlight ? "3px solid blue " : "",
-          borderRadius: "50%",
+          bgcolor: isAnswered ? "#ffa500" : "black",
+          border: highlight ? "3px solid teal " : "",
           width: "50px",
           height: "50px",
           color: "white",
